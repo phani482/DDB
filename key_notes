@@ -1,0 +1,21 @@
+**TransactWriteItems
+
+* TransactWriteItems don't succeed under the following circumstances:
+    * When a condition in one of the condition expressions is not met.
+    * When transaction validation error occurs because of more than one action in the same transaction on the same item.
+    * TransactionCancelledException- 
+        * ongoing TransactWriteItems operation conflicts with a concurrent TransactWriteItems request on one or more items. In this case, the concurrent request fails with this error.
+        * If an ongoing TransactWriteItems operation conflicts with a concurrent PutItem, UpdateItem, DeleteItem, or TransactGetItems request on one or more items in the TransactWriteItems operation, then the concurrent request fails with this error.
+        * Important: if an ongoing TransactWriteItems operation conflicts with a concurrent GetItem request, both operations can succeed
+    * Insufficient provisioned capacity for transaction to be completed.
+    * Item size becomes too large (>400kb), LSI becomes too large or similar validation error occurs because of changes made by transactions
+    * User error, like invalid data format 
+
+
+**TransactGetItems
+
+* TransactGetItems don’t succeed under following
+    * When there is an ongoing TransactGetItems operation that conflicts with a concurrent PutItem, UpdateItem, DeleteItem or TransactWriteItems request. In this case the TransactGetItems operation fails with a TransactionCancelledException.
+    * if an ongoing TransactGetItems operation conflicts with a concurrent GetItem request, both operations can succeed.
+    * When there is insufficient provisioned capacity for the transaction to be completed.
+    * When there is a user error, such as an invalid data format.
