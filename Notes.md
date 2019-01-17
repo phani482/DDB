@@ -2,12 +2,12 @@
 
 1. My First Heading for Mark down cheat sheet:
 2. Another item  
-  * This is unordered sublist Which will have '.' at the beginning  
-  * This is unordered sublist2  
+		* This is unordered sublist Which will have '.' at the beginning  
+		* This is unordered sublist2  
 
 1. This is a numbered list
-		-2. Ordered list, this will have the continuition of the above line numbers
-		-3. This is also a ordered list
+		-2. Ordered list, this will have the continuition of the above line numbers		
+		-3. This is also a ordered list		
 
 4. And another line
 
